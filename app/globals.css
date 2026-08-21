@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #f6faf8;
+  --color-surface: #ffffff;
+  --color-ink: #142621;
+  --color-ink-soft: #4b615a;
+  --color-border: #e2ece7;
+
+  --color-primary: #0f7a54;
+  --color-primary-dark: #0b5e40;
+  --color-primary-soft: #e3f3ec;
+
+  --color-gold: #f2a63d;
+  --color-gold-soft: #fdf1de;
+
+  --color-flame: #ef6c4d;
+  --color-flame-soft: #fdeae4;
+
+  --color-sky: #3f8ec9;
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-border: var(--color-border);
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-soft: var(--color-primary-soft);
+  --color-gold: var(--color-gold);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-flame: var(--color-flame);
+  --color-flame-soft: var(--color-flame-soft);
+  --color-sky: var(--color-sky);
+
+  --font-display: var(--font-baloo), "Tajawal", sans-serif;
+  --font-body: var(--font-tajawal), "Tajawal", sans-serif;
+}
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* شريط تمرير هادئ */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 8px; }
+
+@keyframes pop-in {
+  0% { transform: scale(0.85); opacity: 0; }
+  60% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-pop-in { animation: pop-in 260ms ease-out; }
+
+@keyframes rise-fade {
+  0% { transform: translateY(6px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-rise { animation: rise-fade 220ms ease-out; }
